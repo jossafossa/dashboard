@@ -11,7 +11,7 @@
           <CardPage v-for="item in pages" :key="item.id" :item="item"></CardPage>
           <button class='card flex-center' @click="addNewPage">
             <span class="button">
-              Add new copy button
+              Add page
             </span>
           </button>
         </div>
@@ -29,7 +29,7 @@
 
           <button class='card flex-center' @click="addNewCopyItem">
             <span class="button">
-              Add new copy button
+              Add copy value
             </span>
           </button>
         </div>
@@ -51,9 +51,12 @@ const copyItems = state.copyItems;
 
 console.log(pages);
 
-const addNewPage = () => {
-  const name = prompt('Name of the new page');
-  const href = prompt('URL of the new page');
+const addNewPage = ({
+  name = false,
+  href = false
+} = {}) => {
+  name = name || prompt('Name of the new page');
+  href = href || prompt('URL of the new page');
 
   if (name && href) {
     state.pages.push({
@@ -75,8 +78,19 @@ const addNewCopyItem = () => {
       value
     });
   }
-
 };
+
+
+// add a new url on a global paste anywhere on the page
+window.addEventListener('paste', (event) => {
+  console.log(event);
+  const url = event.clipboardData.getData('text/plain');
+  if (url) {
+    addNewPage({
+      href: url
+    });
+  }
+});
 
 </script>
 

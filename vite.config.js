@@ -10,18 +10,19 @@ export default defineConfig({
   plugins: [
     vue(),
   ],
-  build: {
-    outDir: 'dist',
-    rollupOptions: {
-      input: 'index.html',
-    },
-  },
   resolve: {
     alias: {
       '@': fileURLToPath(new URL('./src', import.meta.url))
     }
   },
-  base: '/', // Adjust this path if needed based on your deployment settings
+  build: {
+    rollupOptions: {
+      output: {
+        entryFileNames: '[name].js', // Remove the hash from the output filename
+        assetFileNames: '[name].[ext]', // Remove the hash from the output filename for CSS and other assets
+      },
+    },
+  },
 
   server: detectServerConfig('dashboard.test'),
 })
