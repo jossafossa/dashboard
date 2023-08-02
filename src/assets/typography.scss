@@ -1,0 +1,28 @@
+.subtitle {
+  font-size: rfs-value(14px);
+  color: hsl-var(primary);
+}
+
+@include prefix(h1) {
+  font-size: rfs-value(32px);
+}
+
+@include prefix(h2) {
+  font-size: rfs-value(24px);
+}
+
+@include prefix(h3) {
+  font-size: rfs-value(20px);
+}
+
+@include prefix(h4) {
+  font-size: rfs-value(18px);
+}
+
+@include prefix(h5) {
+  font-size: rfs-value(16px);
+}
+
+@include prefix(h6) {
+  font-size: rfs-value(14px);
+}

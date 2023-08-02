@@ -1,0 +1,19 @@
+.vstack {
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap, 0px);
+}
+
+.hstack {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--gap, 0px);
+}
+
+.gap-1 {
+  --gap: 1rem;
+}
+
+.gap-2 {
+  --gap: 2rem;
+}

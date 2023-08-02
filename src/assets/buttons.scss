@@ -1,0 +1,66 @@
+:where(.button) {
+  --height: 50px;
+  --padding: 1.5rem;
+  min-height: var(--height);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 100px;
+  padding: 0 var(--padding);
+  background-color: hsl-var(primary);
+  color: var(--color-black);
+  border: none;
+  cursor: pointer;
+  transition: var(--transition-base);
+  text-transform: uppercase;
+  font-weight: var(--font-weight-bold);
+  font-size: var(--font-size-small);
+  letter-spacing: 1px;
+
+  @include active {
+    background-color: hsl-var(primary, -5deg, 0, -5%);
+  }
+
+  &.is-white {
+    background-color: hsl-var(white);
+    color: var(--font-color-body);
+
+    @include active {
+      background-color: hsl-var(white, -5deg, 0, -5%);
+    }
+  }
+
+  &.is-small {
+    --height: 2.5rem;
+  }
+
+  &.is-full {
+    width: 100%;
+  }
+
+  &.is-icon {
+    width: var(--height);
+    padding: 0;
+    font-size: 120%;
+  }
+
+  &.is-close {
+    width: var(--height);
+    padding: 0;
+    position: relative;
+
+    &:before,
+    &:after {
+      content: '';
+      position: absolute;
+      background-color: currentColor;
+      width: 1em;
+      height: 1px;
+      transform: rotate(45deg);
+    }
+
+    &:after {
+      transform: rotate(-45deg);
+    }
+  }
+}

@@ -1,0 +1,6 @@
+:root {
+  --border-radius: 1rem;
+  @include color('primary', #ff6f61);
+  @include color('card-background', rgba(255, 255, 255, 0.1));
+  --transition-base: 0.15s ease;
+}
