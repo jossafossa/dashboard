@@ -8,6 +8,10 @@
       </header>
 
       <section>
+        <div class="hstack gap-1">
+          <button @click.prevent="$emit('remove')"><i class="fa-solid fa-trash"></i></button>
+          <button @click.prevent="$emit('edit')"><i class="fa-solid fa-pencil"></i></button>
+        </div>
         <span class="subtitle">{{ item.name }}</span>
 
         <h2 class="h6" v-if="preview.title">
@@ -19,7 +23,7 @@
 </template>
 
 <script setup>
-import { defineProps, onMounted, ref } from 'vue'
+import { defineProps, onMounted, ref, defineEmits } from 'vue'
 
 const props = defineProps({
   item: {
@@ -27,6 +31,8 @@ const props = defineProps({
     required: true
   }
 })
+
+defineEmits(['remove', 'edit'])
 
 const preview = ref({})
 
