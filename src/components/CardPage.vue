@@ -25,6 +25,10 @@
 <script setup>
 import { defineProps, onMounted, ref, defineEmits } from 'vue'
 
+// DEV = true when the url includes .test
+
+let DEV = window.location.href.includes('.test')
+
 const props = defineProps({
   item: {
     type: Object,
@@ -50,7 +54,8 @@ const handlePreview = async () => {
 const getPreview = async (url) => {
   let formData = new FormData()
   formData.append('url', url)
-  let value = await fetch('https://jossafossa.nl/preview.php', {
+  let host = DEV ? 'http://www.preview.test/preview.php' : 'https://www.jossafossa.nl/preview.php'
+  let value = await fetch(host, {
     method: 'POST',
     body: formData
   })

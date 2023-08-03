@@ -68,7 +68,7 @@ const addNewPage = ({ name = false, href = false } = {}) => {
   name = name || prompt('Name of the new page')
   href = href || prompt('URL of the new page')
 
-  if (name && href) {
+  if (href) {
     state.pages.push({
       id: Date.now(),
       name,
